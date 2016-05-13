@@ -24,7 +24,7 @@ void MainWindow::on_pushButton_clicked()
     int cypherMode = ui->comboBox->currentIndex();
     switch (cypherMode) {
         case 0: // Caesar
-            decypheredText = "Decypher::caesar(cypheredText, stoi(keyWord)";
+            decypheredText = Decypher::caesar(cypheredText, stoi(key));
             break;
         case 1: // Vigenere
             decypheredText = Decypher::vigenere(cypheredText, key);
