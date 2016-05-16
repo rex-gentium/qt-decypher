@@ -22,15 +22,19 @@ char Decypher::vigenere(const char c, const char keyC)
 
 string Decypher::caesar(string text, const int key)
 {
+
+    if (text.empty() || key == 0)
+        return text;
+
     for (int i = 0; i < text.length(); i++)
     {
         if(text[i] >= 'A' && text[i] <= 'Z')
         {
-            text[i] = (char)(((text[i] - key - 'A' + 26) % 26) + 'A');
+            text[i] = (char)(((text[i] - key - 'A' + alphabetSize) % alphabetSize) + 'A');
         }
         else if (text[i] >= 'a' && text[i] <= 'z')
         {
-            text[i] = (char)(((text[i] - key - 'a' + 26) % 26) + 'a');
+            text[i] = (char)(((text[i] - key - 'a' + alphabetSize) % alphabetSize) + 'a');
         }
      }
     return text;
